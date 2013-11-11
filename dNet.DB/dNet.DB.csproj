@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{86363696-F5D3-48F3-B03E-1307E319DC91}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>dNet.DB</RootNamespace>
+    <AssemblyName>dNet.DB</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MySql.Data, Version=5.0.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dlls\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SqlServerCe, Version=3.5.1.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Attributes.cs" />
+    <Compile Include="dModelSync.cs" />
+    <Compile Include="Factory.cs" />
+    <Compile Include="IDbMaker.cs" />
+    <Compile Include="IDbSql.cs" />
+    <Compile Include="IDbUtil.cs" />
+    <Compile Include="MsSql\dMsSqlMaker.cs" />
+    <Compile Include="MsSql\dMsSqlSql.cs" />
+    <Compile Include="dModel.cs" />
+    <Compile Include="dPersistence.cs" />
+    <Compile Include="IDbObj.cs" />
+    <Compile Include="MsSql\dMsSqlObj.cs" />
+    <Compile Include="MsSql\dMsSqlUtil.cs" />
+    <Compile Include="Mysql\dMySqlMaker.cs" />
+    <Compile Include="Mysql\dMySqlObj.cs" />
+    <Compile Include="Mysql\dMySqlSql.cs" />
+    <Compile Include="Mysql\dMySqlUtil.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlCe\dSqlCeMaker.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SqlCe\dSqlCeObj.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SqlCe\dSqlCeSql.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SqlCe\dSqlCeUtil.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utils\TryConvert.cs" />
+    <Compile Include="Utils\Util.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="dlls\mysql.data.dll" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

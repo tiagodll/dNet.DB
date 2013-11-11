@@ -1,0 +1,13 @@
+E:\DEV\Clinitech\trunk\Clinitech\dNet.DB\obj\Debug\ResolveAssemblyReference.cache
+E:\DEV\Clinitech\trunk\Clinitech\dNet.DB\bin\Debug\dNet.DB.dll
+E:\DEV\Clinitech\trunk\Clinitech\dNet.DB\bin\Debug\dNet.DB.pdb
+E:\DEV\Clinitech\trunk\Clinitech\dNet.DB\bin\Debug\dNet.dll
+E:\DEV\Clinitech\trunk\Clinitech\dNet.DB\bin\Debug\dNet.pdb
+E:\DEV\Clinitech\trunk\Clinitech\dNet.DB\obj\Debug\dNet.DB.dll
+E:\DEV\Clinitech\trunk\Clinitech\dNet.DB\obj\Debug\dNet.DB.pdb
+E:\DEV\dNet.DB\trunk\dNet.DB\bin\Debug\dNet.DB.dll
+E:\DEV\dNet.DB\trunk\dNet.DB\bin\Debug\dNet.DB.pdb
+E:\DEV\dNet.DB\trunk\dNet.DB\obj\Debug\ResolveAssemblyReference.cache
+E:\DEV\dNet.DB\trunk\dNet.DB\obj\Debug\dNet.DB.dll
+E:\DEV\dNet.DB\trunk\dNet.DB\obj\Debug\dNet.DB.pdb
+E:\DEV\dNet.DB\trunk\dNet.DB\bin\Debug\mysql.data.dll

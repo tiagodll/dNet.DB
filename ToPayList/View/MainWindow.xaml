@@ -1,0 +1,21 @@
+﻿<Window x:Class="ToPayList.View.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:util="clr-namespace:ToPayList.Util"
+    util:Chrome.IsEnabled="true"
+    Title="MainWindow" Height="300" Width="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <TextBlock>DatePicker</TextBlock>
+        <Frame Grid.Row="1"
+			x:Name="NavigationFrame"
+			JournalOwnership="UsesParentJournal"
+			NavigationUIVisibility="Hidden"
+			Source="ToPayList.xaml"
+			Focusable="False"
+		/>
+    </Grid>
+</Window>

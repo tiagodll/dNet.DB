@@ -1,0 +1,77 @@
+﻿<Page x:Class="ToPayList.View.lista"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="clr-namespace:ToPayList.Controller.Converters"
+    Title="lista" mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" d:DesignHeight="118" d:DesignWidth="78">
+    <Page.Resources>
+        <converters:DatetimeToDate x:Key="dttod" />
+        <converters:IntToBool x:Key="inttobool" />
+        
+        <DataTemplate x:Key="ItemTemplate">
+            <Grid>
+                <Grid.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Offset="0" Color="White"></GradientStop>
+                        <GradientStop Offset="1" Color="Silver"></GradientStop>
+                    </LinearGradientBrush>
+                </Grid.Background>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="10"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" Text="{Binding Descricao}" FontSize="16" Foreground="Green"/>
+                <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Data, StringFormat={}{0:MM/dd/yyyy}}" FontSize="10" Foreground="Gray"/>
+                <TextBlock Grid.Row="1" Grid.Column="3" Text="{Binding Valor}" FontSize="10" Foreground="Gray"/>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="SelectedTemplate">
+            <Grid>
+                <Grid.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Offset="0" Color="LightBlue"></GradientStop>
+                        <GradientStop Offset="1" Color="#FF0077CC"></GradientStop>
+                    </LinearGradientBrush>
+                </Grid.Background>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="10"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <CheckBox Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" VerticalAlignment="Center" x:Name="chkItem" IsChecked="{Binding Path=Pago, Converter={StaticResource inttobool}}"></CheckBox>
+                <TextBlock Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="3" Text="{Binding Path=Descricao}" FontSize="16" Foreground="Green"/>
+                <TextBlock Grid.Row="1" Grid.Column="2" Text="{Binding Path=Data, StringFormat={}{0:MM/dd/yyyy}}" FontSize="10" Foreground="Gray"/>
+                <TextBlock Grid.Row="1" Grid.Column="4" Text="{Binding Path=Valor}" FontSize="10" Foreground="Gray"/>
+            </Grid>
+        </DataTemplate>
+
+        <Style TargetType="{x:Type ListBoxItem}" x:Key="ContainerStyle">
+            <Setter Property="ContentTemplate" Value="{StaticResource ItemTemplate}" />
+            <Style.Triggers>
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="ContentTemplate" Value="{StaticResource SelectedTemplate}" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Page.Resources>
+    <StackPanel>
+        <Button x:Name="btnNovo" Click="btnNovo_Click">Adicionar</Button>
+        <ListBox x:Name="lstToPay" HorizontalContentAlignment="Stretch" 
+                 ItemsSource="{Binding}" 
+                 ItemContainerStyle="{StaticResource ContainerStyle}"
+                 MouseDoubleClick="lstToPay_MouseDoubleClick">
+        </ListBox>
+    </StackPanel>
+</Page>
